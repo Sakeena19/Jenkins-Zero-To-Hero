@@ -34,10 +34,6 @@ pipeline {
         DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
-script {
-                    def dockerOutput = sh(script: "docker login -u <sakeena19> -p <sakeena123>", returnStdout: true).trim()
-                    echo dockerOutput.replaceAll("(?i)warning.*password.*unencrypted.*", "")
-                }
       }
       steps {
         script {
